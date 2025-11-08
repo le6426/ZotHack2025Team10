@@ -4,6 +4,9 @@
 	padding: 2rem;
 	text-align: center;
 }
+#updates-body {
+    background-image: url('/Background.png');
+}
 .header {
     font-size: 100px;
     font-weight: bolder;
@@ -17,7 +20,7 @@
     margin-top: -60px;
     font-size: 70px;
     font-weight: bolder;
-    margin-bottom: none;
+    margin-bottom: -20px;
     font-family: "Segoe UI", "Tahoma", "Geneva", sans-serif;
     background: linear-gradient(to right, #ffde59, #ff914d);
     -webkit-background-clip: text;

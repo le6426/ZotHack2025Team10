@@ -6,7 +6,7 @@ function Updates() {
 	const [count, setCount] = useState(0);
 
 	return (
-		<>
+		<body id="updates-body">
 		    <div className="header">
                 PETR
             </div>
@@ -20,7 +20,7 @@ function Updates() {
                 <button className="buttonstyle">THU</button>
                 <button className="buttonstyle">FRI</button>
 			</div>
-		</>
+		</body>
 	);
 }
 

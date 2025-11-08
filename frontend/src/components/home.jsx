@@ -17,7 +17,7 @@ function Home() {
 	const [count, setCount] = useState(0);
 
 	return (
-		<body>
+		<body id="home-body">
 			<div className="body-container">
 				<a href="#" target="_blank" rel="noreferrer">
 					<img src="UC_Irvine_Anteaters_logo.svg" className="logo" alt="UCI logo" />
