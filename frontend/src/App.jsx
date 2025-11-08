@@ -17,26 +17,25 @@ function App() {
 	const [count, setCount] = useState(0);
 
 	return (
-		<>
-			<div>
-				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank" rel="noreferrer">
-					<img src={reactLogo} className="logo react" alt="React logo" />
+		<body>
+			<div className="body-container">
+				<a href="#" target="_blank" rel="noreferrer">
+					<img src="UC_Irvine_Anteaters_logo.svg" className="logo" alt="UCI logo" />
 				</a>
 			</div>
-			<h1>Vite + React</h1>
-			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-				<p>
-					Edit <code>src/App.jsx</code> and save to test HMR
-				</p>
-
-				<RandomItem maximum={1000} />
+			<div class="flex-container">
+				<h1>PETR<br></br>
+					CAL
+				</h1>
+				<h2>
+					<a href="#">Start</a>
+				</h2>
+				<h3 className="caption">Your campus plug for every drop.</h3>
+				<h3>
+					<a className="login" href="#">Log In</a>
+				</h3>
 			</div>
-			<p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-		</>
+		</body>
 	);
 }
 
