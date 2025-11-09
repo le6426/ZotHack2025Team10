@@ -34,14 +34,13 @@ function Updates() {
                 <button className="buttonstyle">THU</button>
                 <button className="buttonstyle">FRI</button>
 			</div>
-            {/* <div className="myCustomHeight">
-                <Calendar
-                    localizer={localizer}
-                    events={myEventsList}
-                    startAccessor="start"
-                    endAccessor="end"
-                />
-            </div> */}
+            <div className="grid">
+                <div className="col"></div>
+                <div className="col"></div>
+                <div className="col"></div>
+                <div className="col"></div>
+                <div className="col"></div>
+            </div>
 		</body>
 	);
 }
