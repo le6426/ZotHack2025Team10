@@ -15,11 +15,12 @@ and any requests for the API paths will be sent to the API routes defined in the
 from pathlib import Path
 
 from fastapi import FastAPI, Request, status
-from fastapi.exceptions import HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from firebase_config import db, auth
 
-import api
+
+import api  
 
 PUBLIC_DIRECTORY = Path("public")
 
@@ -32,7 +33,7 @@ app.mount("/api/", api.app)
 
 # Make the public files (HTML, JS, CSS, etc.) accessible on the server
 # With HTML mode, `index.html` is automatically loaded
-app.mount("/", StaticFiles(directory=PUBLIC_DIRECTORY, html=True), name="public")
+# app.mount("/", StaticFiles(directory=PUBLIC_DIRECTORY, html=True), name="public")
 
 
 @app.exception_handler(status.HTTP_404_NOT_FOUND)
@@ -47,3 +48,21 @@ async def not_found(req: Request, exc: HTTPException) -> FileResponse:
     This should be removed if the frontend app does not handle different URL paths.
     """
     return FileResponse(PUBLIC_DIRECTORY / "index.html")
+
+
+@app.get("/")
+def root():
+    return {"message": "FastAPI + Firebase connected!"}
+
+@app.post("/users/{uid}")
+def get_user(uid: str):
+    try:
+        user = auth.get_user(uid)
+        return {"uid": user.uid, "email": user.email}
+    except Exception as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+@app.get("/data")
+def get_data():
+    docs = db.collection("users").stream()
+    return [{"id": doc.id, **doc.to_dict()} for doc in docs]
