@@ -42,7 +42,8 @@ pip install -r requirements.txt -r requirements-dev.txt
 Finally, start the local development server:
 
 ```bash
-fastapi dev src/api.py
+cd src
+uvicorn main:app --reload
 ```
 
 Congratulations! You've successfully started up a FastAPI backend.

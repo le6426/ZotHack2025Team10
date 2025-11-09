@@ -4,6 +4,7 @@ import Card from "./card.jsx";
 import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import { Calendar, dayjsLocalizer } from "react-big-calendar";
+import { Link } from "react-router-dom";
 
 dayjs.extend(timezone);
 const localizer = dayjsLocalizer(dayjs);
@@ -12,8 +13,14 @@ function Updates() {
     const [PetrList, setPetrList] = useState([]);
     const [currentWeekIndex, setCurrentWeekIndex] = useState(1); // default to weekSix
     const weekKeys = ["week4", "weekFive", "weekSix"];
+    const weekNames = {
+        0: "Oct 20 - Oct 24",
+        1: "Oct 27 - Oct 31",
+        2: "Nov 3 - Nov 7",
+    }
 
     const currentWeekKey = weekKeys[currentWeekIndex];
+    const currentWeekName = weekNames[currentWeekIndex];
 
     const fetchPetrs = async (weekKey) => {
         try {
@@ -59,12 +66,14 @@ function Updates() {
                 <button onClick={handlePrevWeek} disabled={currentWeekIndex === 0}>
                     ⬅ Previous
                 </button>
-                <span className="week-label">{currentWeekKey.toUpperCase()}</span>
+                <span className="week-label">{currentWeekName.toUpperCase()}</span>
                 <button onClick={handleNextWeek} disabled={currentWeekIndex === weekKeys.length - 1}>
                     Next ➡
                 </button>
             </div>
-
+            <Link className="home-link" to="/">
+                <a>Home</a>
+            </Link>
             <div className="card">
                 <button className="buttonstyle">MON</button>
                 <button className="buttonstyle">TUE</button>

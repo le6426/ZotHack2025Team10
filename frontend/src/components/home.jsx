@@ -54,7 +54,7 @@ function Home() {
       <div className="flex-container">
         <h1>PETR<br />CAL</h1>
         <h2>
-          <a href="/updates">Start</a>
+          <a href="/updates">View</a>
         </h2>
         <h3 className="caption">Your campus plug for every drop.</h3>
 

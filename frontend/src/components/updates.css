@@ -121,3 +121,23 @@ html, body {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+.home-link {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(90deg, #ffde59, #ff914d);
+    color: #074870;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-decoration: none;
+    z-index: 1000;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.home-link:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #ff914d, #ffde59);
+}
