@@ -43,9 +43,9 @@ function Card({ petrs, time, title, url, createGoogleCalLink }) {
 	return (
 		<div className="card1">
             <h3 className="title">{title}</h3>
-            <p>{petrs.join(", ")}</p>
+            {petrs && <p>{petrs.join(", ")}</p>}
             <p>{formatter.format(date)}</p>
-            <InstagramEmbed url={url} width={300} captioned/>
+            {url && <InstagramEmbed url={url} width={300} captioned/>}
             <Link to={createGoogleCalLink(startUTC, endUTC, title, petrs)} target="_blank" rel="noopener noreferrer" className="calendar-link">
                 Add to Google Calendar
             </Link>

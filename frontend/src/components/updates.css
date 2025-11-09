@@ -90,3 +90,34 @@ html, body {
     border: white 2px solid;
     background-color: grey;
 }
+
+.week-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 2rem 0;
+    gap: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffde59;
+}
+
+.week-navigation button {
+    background: linear-gradient(to right, #ffde59, #ff914d);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #074870;
+    transition: 0.2s ease;
+}
+
+.week-navigation button:hover {
+    transform: scale(1.05);
+}
+
+.week-navigation button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
