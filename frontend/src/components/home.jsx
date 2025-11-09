@@ -1,42 +1,77 @@
-import { useState } from "react";
-
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useState, useEffect } from "react";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
+import app from "../src/firebase";
 import "./home.css";
 
-import RandomItem from "@/components/RandomItem";
-
-/*
-This is the starting point of our application. Here, we can begin coding 
-and transforming this page into whatever best suits our needs. 
-For example, we can start by creating a login page, home page, or an about section; 
-there are many ways to get your application up and running. 
-With App.jsx, we can also define global variables and routes to store information as well as page navigation.
-*/
 function Home() {
-	const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null); // Store logged-in user info
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
-	return (
-		<body>
-			<div className="body-container">
-				<a href="#" target="_blank" rel="noreferrer">
-					<img src="UC_Irvine_Anteaters_logo.svg" className="logo" alt="UCI logo" />
-				</a>
-			</div>
-			<div class="flex-container">
-				<h1>PETR<br></br>
-					CAL
-				</h1>
-				<h2>
-					<a href="#">Start</a>
-				</h2>
-				<h3 className="caption">Your campus plug for every drop.</h3>
-				<h3>
-					<a className="login" href="#">Log In</a>
-				</h3>
-			</div>
-		</body>
-	);
+  // Listen for auth state changes
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [auth]);
+
+  // Function to sign in with Google
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+      console.log("User signed in:", result.user);
+    } catch (error) {
+      console.error("Error signing in:", error);
+    }
+  };
+
+  // Function to sign out
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+      console.log("User signed out");
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
+
+  return (
+    <div>
+      <div className="body-container">
+        <a href="#" rel="noreferrer">
+          <img src="UC_Irvine_Anteaters_logo.svg" className="logo" alt="UCI logo" />
+        </a>
+      </div>
+
+      <div className="flex-container">
+        <h1>PETR<br />CAL</h1>
+        <h2>
+          <a href="/updates">Start</a>
+        </h2>
+        <h3 className="caption">Your campus plug for every drop.</h3>
+
+        {!user ? (
+          <button className="login" onClick={handleGoogleSignIn}>
+            Admin
+          </button>
+        ) : (
+          <div>
+            <button className="login" onClick={handleSignOut}>
+              Sign Out
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default Home;

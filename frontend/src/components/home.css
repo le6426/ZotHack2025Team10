@@ -80,6 +80,7 @@ h1 {
     color: #fbe474aa;
     font-family: 'Oswald', sans-serif;
     font-style: italic;
+	font-weight: bold;
     padding: 7px;
     overflow: visible;
 }
@@ -106,7 +107,7 @@ h2 {
 }
 
 h2:hover {
-	transform: translateX(-50%) scale(1.1);
+	transform: translateX(-50%) scale(1.05);
 	background: rgb(3, 3, 139);
 	color: #c89f0d;
 }
@@ -120,21 +121,22 @@ h2:hover {
 }
 
 .login {
-	top: 1rem;
-	left: 1rem;
+
 	font-size: 20px;
 	will-change: filter;
 	transition: filter 300ms;
 	position: absolute;
 	top: 1rem;
-	left: 92%;
+	right: 200px;
+	right: 5%;
 	background: linear-gradient(90deg, #e5d09c, #c89f0d);
 	border-radius: 5px;
-	width: 70px;;
+	padding: 10px 20px;
 	color: rgb(3, 3, 139);
+	width: 200px;
 }
 
 .login:hover {
-	transform: scale(1.05);
 	background:rgb(3, 3, 139);
+	color:#c89f0d;
 }
