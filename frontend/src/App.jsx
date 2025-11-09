@@ -7,6 +7,7 @@ import "./App.css";
 
 import RandomItem from "@/components/RandomItem";
 import Home from "./components/home";
+import Updates from "./components/updates";
 
 /*
 This is the starting point of our application. Here, we can begin coding 
@@ -21,6 +22,7 @@ function App() {
     <Router>
 		<Routes>
 			<Route path="/" element={<Home/>} />
+			<Route path="/updates" element={<Updates/>} />
 		</Routes>
         {/* <Route path="/about" render={() => <AboutPage />} /> */}
     </Router>

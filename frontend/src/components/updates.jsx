@@ -1,35 +1,48 @@
 import { useState } from "react";
+import "./updates.css";
+import dayjs from 'dayjs'
+import timezone from 'dayjs/plugin/timezone'
+import { Calendar, dayjsLocalizer } from 'react-big-calendar'
 
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+dayjs.extend(timezone)
 
-import RandomItem from "@/components/RandomItem";
+const localizer = dayjsLocalizer(dayjs)
 
 function Updates() {
 	const [count, setCount] = useState(0);
 
-	return (
-		<>
-			<div>
-				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank" rel="noreferrer">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-			</div>
-			<h1>PetrCAL</h1>
-			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-				<p>
-					Edit <code>src/App.jsx</code> and save to test HMR
-				</p>
+    const myEventsList = [
+        { title: 'Team Meeting', start: new Date(2025, 10, 8, 9, 0), end: new Date(2025, 10, 8, 10, 0) },
+        { title: 'Project Deadline', start: new Date(2025, 10, 10, 0, 0), end: new Date(2025, 10, 10, 23, 59) },
+        { title: 'Lunch with Sarah', start: new Date(2025, 10, 12, 12, 30), end: new Date(2025, 10, 12, 13, 30) },
+        { title: 'Conference', start: new Date(2025, 10, 15, 9, 0), end: new Date(2025, 10, 17, 17, 0) },
+        { title: 'Yoga Class', start: new Date(2025, 10, 18, 18, 0), end: new Date(2025, 10, 18, 19, 0) }
+    ];
 
-				<RandomItem maximum={1000} />
+	return (
+		<body id="updates-body">
+		    <div className="header">
+                PETR
+            </div>
+            <div className="subheader">
+                CAL
+            </div>
+            <div className="card">
+				<button className="buttonstyle">MON</button>
+                <button className="buttonstyle">TUE</button>
+                <button className="buttonstyle">WED</button>
+                <button className="buttonstyle">THU</button>
+                <button className="buttonstyle">FRI</button>
 			</div>
-			<p className="read-the-docs">Click on the Vite and React logos to learn more HI</p>
-		</>
+            {/* <div className="myCustomHeight">
+                <Calendar
+                    localizer={localizer}
+                    events={myEventsList}
+                    startAccessor="start"
+                    endAccessor="end"
+                />
+            </div> */}
+		</body>
 	);
 }
 

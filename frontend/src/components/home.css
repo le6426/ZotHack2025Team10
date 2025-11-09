@@ -1,5 +1,5 @@
-body {
-    background-image: url('/Petr Drop.png');
+#home-body {
+    background-image: url('./Petr Drop.png');
 }
 
 #root {

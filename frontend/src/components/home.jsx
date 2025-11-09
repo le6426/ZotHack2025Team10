@@ -44,7 +44,7 @@ function Home() {
   };
 
   return (
-    <div>
+    <body id="home-body">
       <div className="body-container">
         <a href="#" rel="noreferrer">
           <img src="UC_Irvine_Anteaters_logo.svg" className="logo" alt="UCI logo" />
@@ -59,7 +59,7 @@ function Home() {
         <h3 className="caption">Your campus plug for every drop.</h3>
 
         {!user ? (
-          <button className="login" onClick={handleGoogleSignIn}>
+		<button className="login" onClick={handleGoogleSignIn}>
             Admin
           </button>
         ) : (
@@ -70,8 +70,29 @@ function Home() {
           </div>
         )}
       </div>
-    </div>
+    </body>
   );
+	return (
+		<body id="home-body">
+			<div className="body-container">
+				<a href="#" target="_blank" rel="noreferrer">
+					<img src="UC_Irvine_Anteaters_logo.svg" className="logo" alt="UCI logo" />
+				</a>
+			</div>
+			<div class="flex-container">
+				<h1>PETR<br></br>
+					CAL
+				</h1>
+				<h2>
+					<a href="#">Start</a>
+				</h2>
+				<h3 className="caption">Your campus plug for every drop.</h3>
+				<h3>
+					<a className="login" href="#">Log In</a>
+				</h3>
+			</div>
+		</body>
+	);
 }
 
 export default Home;
