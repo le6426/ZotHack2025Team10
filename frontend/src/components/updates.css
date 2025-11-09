@@ -4,8 +4,17 @@
 	padding: 2rem;
 	text-align: center;
 }
+
+html, updates-body {
+
+}
 #updates-body {
-    background-image: url('/Background.png');
+    /* background: linear-gradient(to bottom, #074870, #000000); */
+    margin: 0;
+    min-height: 100%;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .header {
     font-size: 100px;
@@ -66,7 +75,7 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: 15px;
     height: 500px;
     /* border: white 2px solid; */
     width: 100%;
@@ -75,4 +84,5 @@
 
 .col {
     border: white 2px solid;
+    background-color: grey;
 }
