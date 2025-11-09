@@ -21,10 +21,10 @@ function Updates() {
 
 	return (
 		<body id="updates-body">
-		    <div className="header">
+		    <div className="header head" >
                 PETR
             </div>
-            <div className="subheader">
+            <div className="subheader head">
                 CAL
             </div>
             <div className="card">

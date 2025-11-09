@@ -88,4 +88,3 @@ def get_drop(quarter_id: str, week_number: str, drop_id: str):
         return {"id": drop_doc.id, **drop_doc.to_dict()}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-

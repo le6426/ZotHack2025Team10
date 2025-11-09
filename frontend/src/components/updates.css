@@ -26,6 +26,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.head:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 2em #f7e58caa);
+}
 .card {
     display: flex;
     justify-content: center;
@@ -50,6 +55,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.buttonstyle:hover {
+    filter: drop-shadow(0 0 2em #f9d10baa);
+}
 .read-the-docs {
 	color: #888;
 }
@@ -62,7 +71,6 @@
     /* border: white 2px solid; */
     width: 100%;
     margin: auto;
-    
 }
 
 .col {
