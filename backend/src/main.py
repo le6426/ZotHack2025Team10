@@ -17,6 +17,7 @@ from pathlib import Path
 from fastapi import FastAPI, Request, status
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from firebase_config import db, auth
 
 
@@ -30,6 +31,17 @@ app = FastAPI()
 # Send all requests to paths under `/api/*` to the API router
 app.mount("/api/", api.app)
 
+origins = [
+    "http://localhost:5173"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Make the public files (HTML, JS, CSS, etc.) accessible on the server
 # With HTML mode, `index.html` is automatically loaded
