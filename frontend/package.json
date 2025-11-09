@@ -11,7 +11,9 @@
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.17",
+		"dayjs": "^1.11.19",
 		"react": "^19.1.1",
+		"react-big-calendar": "^1.19.4",
 		"react-dom": "^19.1.1",
 		"react-router-dom": "^7.9.5",
 		"tailwindcss": "^4.1.17"
