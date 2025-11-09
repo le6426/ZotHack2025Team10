@@ -51,7 +51,7 @@ function Updates() {
     ];
 
 	return (
-		<body id="updates-body">
+		<div id="updates-body">
 		    <div className="header head" >
                 PETR
             </div>
@@ -102,7 +102,7 @@ function Updates() {
                     ))}
                 </div>
             </div>
-		</body>
+		</div>
 	);
 }
 
